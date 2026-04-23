@@ -29,7 +29,8 @@ export default function DashboardPage() {
   return (
     <AppLayout>
       <div className="flex">
-        <div className="flex-1 p-6 lg:p-8">
+        {/* ✅ ditambah pt-16 lg:pt-0 supaya tidak ketutup hamburger */}
+        <div className="flex-1 p-6 pt-16 lg:p-8 lg:pt-8">
           <div className="mb-8">
             <h1 className="font-display text-2xl font-extrabold text-slate-100 tracking-tight">
               Today&apos;s Quest
@@ -65,6 +66,7 @@ export default function DashboardPage() {
           )}
         </div>
 
+        {/* Sidebar kanan — tetap hidden di mobile seperti sebelumnya */}
         <div className="w-72 p-6 hidden lg:flex flex-col gap-4 border-l border-white/[0.04] shrink-0">
           <div className="card-neon">
             <div className="flex items-center gap-2 mb-4">
