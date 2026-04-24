@@ -95,20 +95,86 @@ export default function Login() {
             </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — pendek sebagai hook */}
           <p
-            className="text-center text-muted text-sm leading-relaxed mb-8"
+            className="text-center text-muted text-sm leading-relaxed mb-6"
             style={{ animation: "fadeInUp 0.8s ease-out 0.3s both" }}
           >
-            Masuk untuk melacak XP, menyelesaikan quest,
-            <br />
-            dan naik level dalam perjalananmu.
+            Aplikasi gamifikasi untuk nyetak tugas jadi misi RPG.
           </p>
+
+          {/* ✅ Feature explainers */}
+          <div
+            className="space-y-3 mb-7"
+            style={{ animation: "fadeInUp 0.8s ease-out 0.35s both" }}
+          >
+            {[
+              {
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4Z" />
+                  </svg>
+                ),
+                color: "text-neon",
+                bg: "bg-neon/[0.06]",
+                border: "border-neon/15",
+                title: "Quest System",
+                desc: "Ubah tugas harianmu jadi misi dengan tingkat kesulitan — Easy, Medium, atau Hard.",
+              },
+              {
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ),
+                color: "text-info",
+                bg: "bg-info/[0.06]",
+                border: "border-info/15",
+                title: "XP & Level Up",
+                desc: "Selesaikan quest untuk kumpulkan XP, naik level, dan lihat progres harianmu.",
+              },
+              {
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14 0-4.5 0-4.5C13.5 5 15 7.5 15 9.5c0 1-.5 1.5-1 2 .5 1.5 1.5 2.5 1.5 4a3 3 0 01-6.5.5" />
+                    <path d="M12 12v9" />
+                    <path d="M12 17l-3 2" />
+                    <path d="M12 17l3 2" />
+                  </svg>
+                ),
+                color: "text-gold",
+                bg: "bg-gold/[0.06]",
+                border: "border-gold/15",
+                title: "Build Habits",
+                desc: "Streak tracker bikin kamu konsisten setiap hari — karena konsistensi adalah XP terbaik.",
+              },
+            ].map((f) => (
+              <div
+                key={f.title}
+                className={`flex gap-3.5 p-3 rounded-xl ${f.bg} border ${f.border}`}
+              >
+                <div
+                  className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${f.color}`}
+                >
+                  {f.icon}
+                </div>
+                <div className="min-w-0">
+                  <div className={`font-display text-[11px] font-bold tracking-wider ${f.color} uppercase mb-0.5`}>
+                    {f.title}
+                  </div>
+                  <p className="text-[12px] text-muted leading-relaxed">
+                    {f.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Stats row */}
           <div
             className="flex justify-center gap-8 mb-7"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.35s both" }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.4s both" }}
           >
             {[
               {
@@ -155,7 +221,7 @@ export default function Login() {
           {/* XP Bar */}
           <div
             className="mb-7"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.4s both" }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.45s both" }}
           >
             <div className="flex justify-between items-center mb-1.5">
               <span className="font-display text-[10px] text-neon tracking-wider font-semibold">
@@ -176,7 +242,7 @@ export default function Login() {
           {/* Divider */}
           <div
             className="flex items-center gap-3 mb-6"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.45s both" }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.5s both" }}
           >
             <div className="flex-1 h-px bg-gradient-to-r from-transparent to-subtle/40" />
             <span className="text-[10px] text-muted uppercase tracking-[2px] font-medium">
@@ -190,7 +256,7 @@ export default function Login() {
             onClick={login}
             disabled={isLoading}
             className="login-btn w-full py-3.5 px-6 rounded-xl border-none cursor-pointer flex items-center justify-center gap-3 text-[15px] font-semibold text-deep bg-gradient-to-r from-neon to-green-600 glow-neon-strong hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.5s both" }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.55s both" }}
           >
             <span className="relative z-10 flex items-center gap-3">
               {isLoading ? (
@@ -223,7 +289,7 @@ export default function Login() {
           {/* Bottom */}
           <p
             className="mt-6 text-center text-[12px] text-muted leading-relaxed"
-            style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}
+            style={{ animation: "fadeInUp 0.8s ease-out 0.65s both" }}
           >
             <span className="text-neon font-medium">●</span> Koneksi
             terenkripsi &amp; aman
